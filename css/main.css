@@ -22,7 +22,8 @@ img { max-width: 100%; height: auto; display: block; }
     width: min(2000px, 92%);
     margin: 0 auto;
     padding: 25px 0;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     justify-content: space-between;
     align-items: center;
     gap: 30px;
@@ -31,7 +32,7 @@ img { max-width: 100%; height: auto; display: block; }
 .logo {
     flex: 0 0 auto;
     color: #fff;
-    font-size: clamp(10px, 3vw, 35px);
+    font-size: clamp(30px, 3vw, 35px);
     font-weight: 800;
     white-space: nowrap;
 }
@@ -91,21 +92,19 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .info1 {
+    text-align: center;
     width: 100%;
     list-style: none;
-    position: static;
     padding: 0;
 }
 
 .info1-item1 {
-    display: block;
     font-size: clamp(22px, 2.4vw, 30px);
     font-weight: 600;
     color: orange;
 }
 
 .info1-item2 {
-    display: block;
     font-size: clamp(38px, 5vw, 60px);
     line-height: 1.1;
     font-weight: 600;
@@ -114,7 +113,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .info1-item3 {
-    display: block;
+    margin: 0 auto;
     max-width: 600px;
     font-size: clamp(16px, 1.5vw, 20px);
     font-style: italic;
@@ -145,6 +144,7 @@ img { max-width: 100%; height: auto; display: block; }
     position: static;
     justify-self: center;
     width: min(1400px, 100%);
+    min-height: 100%;
     padding: 0;
     height: auto;
     object-fit: contain;
@@ -242,9 +242,9 @@ img { max-width: 100%; height: auto; display: block; }
 .before-popular-text1 {
     margin: 0 auto;
     max-width: 50%;
-    font-size: clamp(16px, 1.5vw, 25px);
+    font-size: clamp(25px, 1.5vw, 35px);
     font-weight: 600;
-    line-height: 2;
+    line-height: 1.3;
     margin-top: 200px;
     text-align: center;
 }
@@ -292,7 +292,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .razdels-div-text1 {
     padding: 30px;
-    font-size: clamp(10px, 3vh, 30px);
+    font-size: clamp(10px, 2.5vh, 30px);
     font-weight: bold;
 }
 
@@ -303,7 +303,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 
-.knopcy-list1 {
+.knopcy-list {
     max-width: 50%;
     margin: 30px auto;
     padding-top: 30px;
@@ -316,34 +316,27 @@ img { max-width: 100%; height: auto; display: block; }
     font-weight: 800;
 }
 
+.knopca-in-list:nth-child(5) {
+    grid-column: 2;
+}
+
 .knopcy-i {
+    margin: 0 auto;
     padding-bottom: 20px;
     min-width: 20px;
 }
 
 .knopcy-p {
+    margin: 10px auto;
     font-size: clamp(1px, 1.5vh, 15px);
 }
 
 .irow {
+    margin: 10px auto;
     display: block;
-    width: 30px;
-    margin: 10px auto 0;
+    width: 20%;
     min-width: 10px;
-}
-
-.knopcy-list2 {
-    width: 50%;
-    margin: 0 auto;
-    padding: 50px;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    list-style: none;
-    gap: 80px;
-    justify-content: center;
-    text-align: center;
-    font-size: clamp(1px, 2vh, 20px);
-    font-weight: 800
+    cursor: pointer;
 }
 
 .our-project-section {
@@ -371,18 +364,21 @@ img { max-width: 100%; height: auto; display: block; }
     font-style: italic;
 }
 
-.img-our-project-section1 {
-    margin: 30px;
+.img-our-project-section {
+    margin: 30px auto;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+    gap: 40px;
 }
 
-.img-our-project-section2 {
-    margin: 30px;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) minmax(0, 2fr);
-    gap: 20px;
-    margin-bottom: 50px;
+.img-our-project-section img {
+    height: 230px;
+}
+
+.img-our-project-section img:nth-child(4) {
+    width: clamp(200px, 25vw, 300px);
+    margin: 0 auto;
 }
 
 .btn-in-ops {
@@ -427,11 +423,12 @@ img { max-width: 100%; height: auto; display: block; }
     margin-bottom: 30px;
 }
 
+.input-email {
 .our-project-section-div {
     margin: 100px auto;
 }
 
-/* .input-email {
+.input-email {
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -540,3 +537,59 @@ footer {
 }
 
 
+/* mobile */
+
+@media (max-width:1100px) {
+    .knopcy-list{
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .img-our-project-section {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width:900px) {
+    .container {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .logo {
+        margin: 0 auto;
+    }
+    .hero {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .menu {
+        margin: 0 auto;
+    }
+    .popular-games {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    
+}
+
+@media (max-width:700px) {
+    .knopcy-list{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .knopca-in-list:nth-child(6) {
+        grid-row: 3;
+    } 
+    .img-our-project-section {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        
+    }
+    
+}
+
+@media (max-width: 450px) {
+    .container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .popular-games {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .followers-text {
+        font-size: 3vh;
+    }
+}
